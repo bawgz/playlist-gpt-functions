@@ -10,7 +10,7 @@ http('createPlaylist', async (req, res) => {
 
   const profileResponse = await axios.get(
     `${SPOTIFY_BASE_URL}/me`,
-    { headers: { Authorization: `Bearer ${accessToken}` } }
+    { headers: { Authorization: accessToken } }
   );
 
   console.log('------------profileResponse----------------');
@@ -26,7 +26,7 @@ http('createPlaylist', async (req, res) => {
   const createPlaylistResponse = await axios.post(
     `${SPOTIFY_BASE_URL}/users/${profileId}/playlists`,
     playlistRequestData,
-    { headers: { Authorization: `Bearer ${accessToken}` } }
+    { headers: { Authorization: accessToken } }
   );
 
   console.log('-------response-----------');
@@ -49,7 +49,7 @@ http('createPlaylist', async (req, res) => {
 async function searchSpotify (song, accessToken) {
   const resp = await axios.get(
     `${SPOTIFY_BASE_URL}/search?q=${song}&type=track&limit=1`,
-    { headers: { Authorization: `Bearer ${accessToken}` } }
+    { headers: { Authorization: accessToken } }
   );
 
   return resp.data.tracks.items[0]?.id;
@@ -63,7 +63,7 @@ async function addSongs (playlistId, songIds, accessToken) {
   const response = await axios.post(
     `${SPOTIFY_BASE_URL}/playlists/${playlistId}/tracks`,
     addSongsRequest,
-    { headers: { Authorization: `Bearer ${accessToken}` } }
+    { headers: { Authorization: accessToken } }
   );
 
   console.log(response);

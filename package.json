@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-create-playlist": "env-cmd functions-framework --source=create-playlist/ --target=createPlaylist",
-    "start-auth": "env-cmd functions-framework --source=authorize/ --target=authorize"
+    "start-create-playlist": "env-cmd npx @google-cloud/functions-framework --source=create-playlist/ --target=createPlaylist",
+    "start-auth": "env-cmd npx @google-cloud/functions-framework --source=authorize/ --target=authorize",
+    "start-token": "env-cmd npx @google-cloud/functions-framework --source=token/ --target=token"
   },
   "author": "",
   "license": "ISC",
