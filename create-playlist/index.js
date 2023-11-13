@@ -41,7 +41,7 @@ http('createPlaylist', async (req, res) => {
 
   console.log(addSongsResult);
 
-  res.status(200).json({ id: createPlaylistResponse.data.id });
+  res.status(200).json({ url: `https://open.spotify.com/playlist/${createPlaylistResponse.data.id}` });
 
   // res.send(`Hello, ${profileId}`);
 });
