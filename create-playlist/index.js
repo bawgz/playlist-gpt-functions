@@ -13,9 +13,6 @@ http('createPlaylist', async (req, res) => {
     { headers: { Authorization: accessToken } }
   );
 
-  console.log('------------profileResponse----------------');
-  console.log(profileResponse);
-
   const profileId = profileResponse.data.id;
 
   const playlistRequestData = {
@@ -29,21 +26,16 @@ http('createPlaylist', async (req, res) => {
     { headers: { Authorization: accessToken } }
   );
 
-  console.log('-------response-----------');
-  console.log(createPlaylistResponse);
+  if (req.body.songs) {
+    const promises = req.body.songs.map(song => searchSpotify(song, accessToken));
+    const searchResults = await Promise.all(promises);
 
-  const promises = req.body.songs.map(song => searchSpotify(song, accessToken));
-  const searchResults = await Promise.all(promises);
+    console.log(JSON.stringify(searchResults));
 
-  console.log(searchResults);
-
-  const addSongsResult = await addSongs(createPlaylistResponse.data.id, searchResults, accessToken);
-
-  console.log(addSongsResult);
+    await addSongs(createPlaylistResponse.data.id, searchResults, accessToken);
+  }
 
   res.status(200).json({ url: `https://open.spotify.com/playlist/${createPlaylistResponse.data.id}` });
-
-  // res.send(`Hello, ${profileId}`);
 });
 
 async function searchSpotify (song, accessToken) {
