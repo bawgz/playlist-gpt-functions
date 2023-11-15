@@ -3,6 +3,9 @@ import axios from 'axios';
 
 http('token', async (req, res) => {
   try {
+    console.log('------------------------------------');
+    console.log(req.body);
+    console.log('------------------------------------');
     const result = await axios.post(
       'https://accounts.spotify.com/api/token',
       req.body,

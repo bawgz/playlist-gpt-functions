@@ -1,3 +1,4 @@
+```json
 {
     "openapi": "3.1.0",
     "info": {
@@ -34,8 +35,24 @@
                             "type": "string[]"
                         }
                     }
-                ],
-                "deprecated": false
+                ]
+            }
+        },
+        "/view-playlist": {
+            "get": {
+                "description": "View a playlist",
+                "operationId": "ViewPlaylist",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The id of the playlist",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
             }
         }
     },
@@ -43,3 +60,4 @@
         "schemas": {}
     }
 }
+```
