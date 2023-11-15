@@ -4,7 +4,7 @@ import axios from 'axios';
 const SPOTIFY_BASE_URL = 'https://api.spotify.com/v1';
 
 http('viewPlaylist', async (req, res) => {
-  console.log(req);
+  console.log(req.params);
   const accessToken = req.headers.authorization;
   const playlistId = req.params['0'].replace('/', '');
 

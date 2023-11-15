@@ -54,7 +54,7 @@ gcloud functions deploy {REPLACE_WITH_NAME_OF_ENDPOINT_IN_GCP} --trigger-http --
                 ]
             }
         },
-        "/view-playlist": {
+        "/view-playlist/{id}": {
             "get": {
                 "description": "View a playlist",
                 "operationId": "ViewPlaylist",
