@@ -53,11 +53,9 @@ async function addSongs (playlistId, songIds, accessToken) {
     uris: songIds.map(id => `spotify:track:${id}`)
   };
 
-  const response = await axios.post(
+  await axios.post(
     `${SPOTIFY_BASE_URL}/playlists/${playlistId}/tracks`,
     addSongsRequest,
     { headers: { Authorization: accessToken } }
   );
-
-  console.log(response);
 }

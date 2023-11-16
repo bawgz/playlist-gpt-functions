@@ -16,7 +16,7 @@ gcloud functions deploy {REPLACE_WITH_NAME_OF_ENDPOINT_IN_GCP} --trigger-http --
 ### Auth
 `https://us-central1-playlistgpt-405003.cloudfunctions.net/authorize`
 `https://us-central1-playlistgpt-405003.cloudfunctions.net/token`
-Scopes: user-read-email,playlist-modify-public,playlist-modify-private,playlist-read-private,playlist-read-collaborative
+Scopes: user-read-email,playlist-modify-public,playlist-modify-private,playlist-read-private,playlist-read-collaborative,user-library-read
 
 ### OpenAPI spec
 ```json
@@ -102,6 +102,13 @@ Scopes: user-read-email,playlist-modify-public,playlist-modify-private,playlist-
                 ]
             }
         },
+        "/view-liked": {
+            "get": {
+                "description": "View a user's liked songs",
+                "operationId": "ViewLiked",
+                "parameters": []
+            }          
+        }
     },
     "components": {
         "schemas": {}

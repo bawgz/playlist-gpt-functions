@@ -78,13 +78,20 @@ const SPEC =
           {
             name: 'songs',
             in: 'body',
-            description: "The list of songs in the format of '{title} {artist}'",
+            description: 'The list of songs in the format of {title} {artist}',
             required: true,
             schema: {
               type: 'string[]'
             }
           }
         ]
+      }
+    },
+    '/view-liked': {
+      get: {
+        description: 'View a user\'s liked songs',
+        operationId: 'ViewLiked',
+        parameters: []
       }
     }
   },
