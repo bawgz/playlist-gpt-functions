@@ -13,6 +13,11 @@ CD into function you want to deploy
 gcloud functions deploy {REPLACE_WITH_NAME_OF_ENDPOINT_IN_GCP} --trigger-http --runtime nodejs20 --entry-point {REPLACE_WITH_NAME_OF_TARGET_FUNCTION}
 ```
 
+### Auth
+`https://us-central1-playlistgpt-405003.cloudfunctions.net/authorize`
+`https://us-central1-playlistgpt-405003.cloudfunctions.net/token`
+Scopes: user-read-email,playlist-modify-public,playlist-modify-private,playlist-read-private,playlist-read-collaborative
+
 ### OpenAPI spec
 ```json
 {

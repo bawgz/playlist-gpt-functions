@@ -5,6 +5,7 @@ const SPOTIFY_BASE_URL = 'https://api.spotify.com/v1';
 
 http('createPlaylist', async (req, res) => {
   console.log(req.headers.authorization);
+  console.log(req.body);
 
   const accessToken = req.headers.authorization;
 
