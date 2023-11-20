@@ -1,101 +1,101 @@
-import { http } from '@google-cloud/functions-framework';
+import { http } from "@google-cloud/functions-framework";
 
-http('spec', async (req, res) => {
+http("spec", async (req, res) => {
   res.send(SPEC);
 });
 
-const SPEC =
-{
-  openapi: '3.1.0',
+const SPEC = {
+  openapi: "3.1.0",
   info: {
-    title: 'Modify Spotify playlists',
-    description: 'Allows you to create playlists and add songs to existing playlists',
-    version: 'v1.0.0'
+    title: "Modify Spotify playlists",
+    description:
+      "Allows you to create playlists and add songs to existing playlists",
+    version: "v1.0.0",
   },
   servers: [
     {
-      url: 'https://us-central1-playlistgpt-405003.cloudfunctions.net'
-    }
+      url: "https://us-central1-playlistgpt-405003.cloudfunctions.net",
+    },
   ],
   paths: {
-    '/create-playlist': {
+    "/create-playlist": {
       post: {
-        description: 'Create a playlist',
-        operationId: 'CreatePlaylist',
+        description: "Create a playlist",
+        operationId: "CreatePlaylist",
         parameters: [
           {
-            name: 'theme',
-            in: 'body',
-            description: 'The theme of the playlist',
+            name: "theme",
+            in: "body",
+            description: "The theme of the playlist",
             required: true,
             schema: {
-              type: 'string'
-            }
+              type: "string",
+            },
           },
           {
-            name: 'songs',
-            in: 'body',
-            description: 'The songs in the following format: {title} {artist}',
+            name: "songs",
+            in: "body",
+            description: "The songs in the following format: {title} {artist}",
             required: false,
             schema: {
-              type: 'string[]'
-            }
-          }
-        ]
-      }
+              type: "string[]",
+            },
+          },
+        ],
+      },
     },
-    '/view-playlist/{id}': {
+    "/view-playlist/{id}": {
       get: {
-        description: 'View a playlist',
-        operationId: 'ViewPlaylist',
+        description: "View a playlist",
+        operationId: "ViewPlaylist",
         parameters: [
           {
-            name: 'id',
-            in: 'path',
-            description: 'The id of the playlist',
+            name: "id",
+            in: "path",
+            description: "The id of the playlist",
             required: true,
             schema: {
-              type: 'string'
-            }
-          }
-        ]
-      }
+              type: "string",
+            },
+          },
+        ],
+      },
     },
-    '/add-songs': {
+    "/add-songs": {
       patch: {
-        description: 'Update a playlist',
-        operationId: 'UpdatePlaylist',
+        description: "Update a playlist",
+        operationId: "UpdatePlaylist",
         parameters: [
           {
-            name: 'playlistId',
-            in: 'body',
-            description: 'The id of the playlist',
+            name: "playlistId",
+            in: "body",
+            description: "The id of the playlist",
             required: true,
             schema: {
-              type: 'string'
-            }
+              type: "string",
+            },
           },
           {
-            name: 'songs',
-            in: 'body',
-            description: 'The list of songs in the format of {title} {artist}',
+            name: "songs",
+            in: "body",
+            description: "The list of songs in the format of {title} {artist}",
             required: true,
             schema: {
-              type: 'string[]'
-            }
-          }
-        ]
-      }
+              type: "string[]",
+            },
+          },
+        ],
+      },
     },
-    '/view-liked': {
+    "/view-liked": {
       get: {
-        description: 'View a user\'s liked songs',
-        operationId: 'ViewLiked',
-        parameters: []
-      }
-    }
+        description: "View a user's liked songs",
+        operationId: "ViewLiked",
+        parameters: [],
+      },
+    },
   },
   components: {
-    schemas: {}
-  }
+    schemas: {},
+  },
 };
