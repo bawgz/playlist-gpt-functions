@@ -37,11 +37,9 @@ http("createPlaylist", async (req, res) => {
     await addSongs(createPlaylistResponse.data.id, searchResults, accessToken);
   }
 
-  res
-    .status(200)
-    .json({
-      url: `https://open.spotify.com/playlist/${createPlaylistResponse.data.id}`,
-    });
+  res.status(200).json({
+    url: `https://open.spotify.com/playlist/${createPlaylistResponse.data.id}`,
+  });
 });
 
 async function searchSpotify(song, accessToken) {

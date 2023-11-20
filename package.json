@@ -7,11 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-create-playlist": "env-cmd npx @google-cloud/functions-framework --source=create-playlist/ --target=createPlaylist",
     "start-auth": "env-cmd npx @google-cloud/functions-framework --source=authorize/ --target=authorize",
-    "start-token": "env-cmd npx @google-cloud/functions-framework --source=token/ --target=token"
+    "start-token": "env-cmd npx @google-cloud/functions-framework --source=token/ --target=token",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
   "type": "module",
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
   "dependencies": {
     "@google-cloud/functions-framework": "^3.3.0",
     "axios": "^1.6.1"
@@ -24,6 +28,8 @@
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
     "prettier": "^3.1.0"
   }
 }
