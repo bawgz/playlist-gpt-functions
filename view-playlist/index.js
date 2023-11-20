@@ -16,5 +16,5 @@ http('viewPlaylist', async (req, res) => {
     { headers: { Authorization: accessToken } }
   );
 
-  res.send(response.data.tracks?.items.map(item => ({ name: item.track.name, artists: item.track.artists })));
+  res.send(response.data.tracks?.items.map(item => ({ name: item.track.name, artists: item.track.artists.map(artist => artist.name) })));
 });
