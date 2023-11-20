@@ -1,3 +1,7 @@
 module.exports = {
-  extends: ["semistandard", "prettier"],
+  extends: [
+    "semistandard",
+    "plugin:prettier/recommended",
+    "plugin:json/recommended",
+  ],
 };
